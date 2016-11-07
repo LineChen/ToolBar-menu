@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:actionLayout="@+id/menu_custom"
+        android:title="自定义"
+        android:id="@+id/menu_custom"
+        app:actionProviderClass="com.beiing.toolbar_menu.MainActionProvider"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/menu_save"
+        android:title="保存"
+        app:showAsAction="always" >
+        <menu>
+            <item
+                android:id="@+id/setting"
+                android:title="设置" />
+            <item
+                android:id="@+id/about"
+                android:title="关于" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/menu_share"
+        android:title="分享"
+        app:showAsAction="always" />
+</menu>
