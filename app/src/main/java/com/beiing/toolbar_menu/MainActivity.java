@@ -1,6 +1,9 @@
 package com.beiing.toolbar_menu;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
+
+import static android.support.v4.app.NotificationCompat.PRIORITY_MAX;
+import static android.support.v4.app.NotificationCompat.VISIBILITY_PRIVATE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +35,32 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        startService(new Intent(this, LockService.class));
+//        startService(new Intent(this, LockService.class));
+
+
+        try {
+            Thread.sleep(3000);
+//            finish();
+            sendLockNotification();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+    private void sendLockNotification() {
+        NotificationCompat.Builder mNotifyBuilder =
+                new NotificationCompat.Builder(getApplicationContext())
+                        .setContentTitle("New Message")
+                        .setContentText("You've received new messages.")
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setPriority(PRIORITY_MAX)
+                        .setVisibility(VISIBILITY_PRIVATE);
+        Notification notification = mNotifyBuilder.build();
+        NotificationManager mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotifyMgr.notify(100, notification);
     }
 
 
