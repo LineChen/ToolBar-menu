@@ -15,6 +15,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LockActivity"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:configChanges="orientation|keyboardHidden|keyboard|navigation"
+            ></activity>
+
+        <service android:name=".LockService"/>
+
     </application>
+
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
 
 </manifest>

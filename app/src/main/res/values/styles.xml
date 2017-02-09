@@ -14,4 +14,12 @@
         <item name="actionMenuTextColor">@color/white</item> <!-- 菜单颜色-->
     </style>
 
+    <style name="FullScreenTheme" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
 </resources>
